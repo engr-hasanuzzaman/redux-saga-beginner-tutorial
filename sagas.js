@@ -3,7 +3,7 @@ import { put, takeEvery, all } from 'redux-saga/effects'
 const delay = (ms) => new Promise(res => setTimeout(res, ms))
 
 function* helloSaga() {
-  console.log('Hello Sagas!')
+  yield takeEvery('*', () => (console.log('Hello Sagas yield')))
 }
 
 function* incrementAsync() {
