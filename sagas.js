@@ -7,12 +7,13 @@ function* helloSaga() {
 }
 
 function* incrementAsync() {
+  console.log('fire incrementAsync');
   yield delay(1000)
   yield put({ type: 'INCREMENT' })
 }
 
 function* watchIncrementAsync() {
-  yield takeEvery('INCREMENT', helloSaga)
+  yield takeEvery('INCREMENT_ASYNC', incrementAsync)
 }
 
 // notice how we now only export the rootSaga
